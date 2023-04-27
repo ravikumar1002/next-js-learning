@@ -3,9 +3,9 @@ import Image from 'next/image';
 import Layout, { siteTitle } from "@/components/layout";
 import utilStyles from '@/styles/utils.module.css';
 import Head from "next/head";
+import { getSortedPostsData } from "@/lib/posts";
 
 
-import { getSortedPostsData } from '../lib/posts';
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -16,9 +16,20 @@ export async function getStaticProps() {
   };
 }
 
+interface IPostsData {
+  id: string;
+  date: string;
+  title: string;
+}
 
+interface IHomeProps {
+  allPostsData: IPostsData[]
+}
 
-export default function Home({ allPostsData }) {
+const Home = (props: IHomeProps) => {
+
+  const { allPostsData } = props
+
   return (
     <Layout home>
       <Head>
@@ -47,3 +58,6 @@ export default function Home({ allPostsData }) {
     </Layout>
   )
 }
+
+
+export default Home
