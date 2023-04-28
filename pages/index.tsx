@@ -37,9 +37,9 @@ const Home = (props: IHomeProps) => {
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>Hi</p>
+        <p>Hi, </p>
         <p>
-          This is a sample website - you’ll be building a site like this on{' '}
+          This is a sample website using next js, where you can see a blog written by me.
         </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
